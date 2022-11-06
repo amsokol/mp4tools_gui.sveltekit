@@ -12,7 +12,7 @@
 	export let required = false
 	export let id: string
 	export let label: string | undefined = undefined
-	export let value: string | undefined = undefined
+	export let value: string
 
 	function onBrowseFile() {
 		alert('TODO: browse file')
@@ -20,7 +20,7 @@
 
 	function onChanged() {
 		dispatch('change', {
-			value: displayed_input.value
+			value: value
 		})
 	}
 
@@ -30,7 +30,9 @@
 </script>
 
 {#if label}
-	<label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for={button_id}>{label}</label>
+	<label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for={button_id}
+		>{label ? label : ''}</label
+	>
 {/if}
 <div class="relative">
 	<div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
@@ -47,14 +49,13 @@
 		</svg>
 	</div>
 	<input
-		bind:this={displayed_input}
+		bind:value
 		on:keypress={(event) => {
 			if (event.key === 'Enter') onBrowseFile()
 		}}
 		on:change={onChanged}
 		type="text"
 		{id}
-		value={value ? value : ''}
 		class="block p-3 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300
        focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
        dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500

@@ -8,14 +8,14 @@
 	import type { MuxDolbyVision } from './store.js'
 
 	let data: MuxDolbyVision
-	const unsubscribe = MuxDolbyVisionStore.subscribe((d: MuxDolbyVision) => {
-		data = d
+
+	const unsubscribe = MuxDolbyVisionStore.subscribe((store: MuxDolbyVision) => {
+		data = store
 	})
 
-	function onSourceVideoTrackChanged(event: CustomEvent<OnFileInputChangeEvent>) {
-		MuxDolbyVisionStore.update((d: MuxDolbyVision) => {
-			d.sourceVideoTrack = event.detail.value
-			return d
+	function updateStore() {
+		MuxDolbyVisionStore.update((_store: MuxDolbyVision) => {
+			return data
 		})
 	}
 
@@ -62,7 +62,49 @@
 		id="source-video"
 		label="Source video track"
 		required={true}
-		value={data.sourceVideoTrack}
-		on:change={onSourceVideoTrackChanged}
+		bind:value={data.sourceVideoTrack}
+		on:change={updateStore}
 	/>
+
+	<div class="flex gap-4 mt-4">
+		<div class="shrink w-[50rem]">
+			<label for="is-video-track-title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+				>Video track title</label
+			>
+			<div class="flex gap-1.5">
+				<input
+					bind:checked={data.isVideoTrackTitle}
+					id="is-video-track-title"
+					type="checkbox"
+					class="mt-2 w-5 h-5 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500
+					dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600
+					disabled:cursor-not-allowed disabled:text-gray-600"
+					on:change={updateStore}
+					disabled={!data.sourceVideoTrack}
+				/>
+				<input
+					bind:value={data.videoTrackTitle}
+					type="text"
+					id="video-track-title"
+					placeholder="Title"
+					class="block p-2 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 text-sm
+					 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600
+				   dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
+					 disabled:cursor-not-allowed dark:disabled:text-gray-400 disabled:text-gray-400"
+					on:change={updateStore}
+					disabled={!data.sourceVideoTrack || !data.isVideoTrackTitle}
+				/>
+			</div>
+		</div>
+		<div class="shrink w-56">
+			<label for="set-frame-rate" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+				>Set frame rate</label
+			>
+			<input
+				type="text"
+				id="set-frame-rate"
+				class="block p-2 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 text-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+			/>
+		</div>
+	</div>
 </div>
