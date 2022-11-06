@@ -134,17 +134,17 @@
 					>
 						<svg
 							class="mr-1 w-5 h-5 group-hover:text-blue-600 dark:group-hover:text-blue-500"
-							fill="none"
-							stroke="currentColor"
-							viewBox="0 0 24 24"
 							xmlns="http://www.w3.org/2000/svg"
-							><path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"
-							/></svg
+							fill="currentColor"
+							viewBox="0 0 16 16"
 						>
+							<path
+								d="M10.304 3.13a1 1 0 0 1 1.196.98v1.8l-2.5.5v5.09c0 .495-.301.883-.662 1.123C7.974 12.866 7.499 13 7 13c-.5 0-.974-.134-1.338-.377-.36-.24-.662-.628-.662-1.123s.301-.883.662-1.123C6.026 10.134 6.501 10 7 10c.356 0 .7.068 1 .196V4.41a1 1 0 0 1 .804-.98l1.5-.3z"
+							/>
+							<path
+								d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"
+							/>
+						</svg>
 						Audio
 						<svg
 							aria-hidden="true"
@@ -223,20 +223,15 @@
 					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke-width="1.5"
-							stroke="currentColor"
-							class="mr-1 w-5 h-5 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+							fill="currentColor"
+							class="mr-1 w-4 h-4 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+							viewBox="0 0 16 16"
 							aria-hidden="true"
 						>
 							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"
+								d="M0 1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1zm4 0v6h8V1H4zm8 8H4v6h8V9zM1 1v2h2V1H1zm2 3H1v2h2V4zM1 7v2h2V7H1zm2 3H1v2h2v-2zm-2 3v2h2v-2H1zM15 1h-2v2h2V1zm-2 3v2h2V4h-2zm2 3h-2v2h2V7zm-2 3v2h2v-2h-2zm2 3h-2v2h2v-2z"
 							/>
-						</svg>
-						Video
+						</svg> Video
 					</button>
 				</li>
 				<li>
