@@ -3,6 +3,13 @@
 	import { DarkMode } from '$lib'
 
 	$: activeUrl = $page.url.pathname
+
+	let menuMux: HTMLButtonElement
+	let menuAudio: HTMLButtonElement
+
+	function closeMenu(button: HTMLButtonElement) {
+		button.click()
+	}
 </script>
 
 <nav class="bg-white border-gray-200 px-2 md:px-4 py-2.5 dark:bg-gray-900">
@@ -71,6 +78,7 @@
 			<ul class="flex flex-col mt-4 font-medium md:flex-row md:space-x-9 md:mt-0">
 				<li>
 					<button
+						bind:this={menuMux}
 						id="mux-menu-dropdown-button"
 						data-dropdown-toggle="mux-menu-dropdown"
 						class="flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-gray-700 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-gray-400 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700 group"
@@ -111,11 +119,13 @@
 						data-popper-reference-hidden=""
 						data-popper-escaped=""
 						data-popper-placement="bottom"
+						role="presentation"
+						on:click={() => closeMenu(menuMux)}
 					>
 						<div class="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
 							<ul class="space-y-4" aria-labelledby="mux-menu-dropdown-button">
 								<li>
-									<a href="#" class="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600">
+									<a href="/" class="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600">
 										<div class="font-semibold">Dolby Vision</div>
 										<span class="text-sm font-light text-gray-500 dark:text-gray-400"
 											>Create MP4 file with Dolby Vision support<br />by muxing video, audio and subtitles tracks.</span
@@ -128,6 +138,7 @@
 				</li>
 				<li>
 					<button
+						bind:this={menuAudio}
 						id="audio-menu-dropdown-button"
 						data-dropdown-toggle="audio-menu-dropdown"
 						class="flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-gray-700 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-gray-400 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700"
@@ -166,27 +177,34 @@
 						data-popper-reference-hidden=""
 						data-popper-escaped=""
 						data-popper-placement="bottom"
+						role="presentation"
+						on:click={() => closeMenu(menuAudio)}
 					>
 						<div class="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
 							<ul class="space-y-4" aria-labelledby="audio-menu-dropdown-button">
 								<li>
-									<a href="#" class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-										About Us
+									<a href="/audio/dn" class="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600">
+										<div class="font-semibold">Dialogue normalization</div>
+										<span class="text-sm font-light text-gray-500 dark:text-gray-400"
+											>Set how far the average dialogue level of the<br />program is below digital 100% full scale (0
+											dBFS).</span
+										>
 									</a>
 								</li>
 								<li>
-									<a href="#" class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-										Library
+									<a href="#" class="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600">
+										<div class="font-semibold">EBU R 128 normalization</div>
+										<span class="text-sm font-light text-gray-500 dark:text-gray-400"
+											>Normalize loudness and maximum level of audio<br />according to the EBU R 128 recommendation.</span
+										>
 									</a>
 								</li>
 								<li>
-									<a href="#" class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-										Resources
-									</a>
-								</li>
-								<li>
-									<a href="#" class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-										Pro Version
+									<a href="#" class="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600">
+										<div class="font-semibold">Add delay</div>
+										<span class="text-sm font-light text-gray-500 dark:text-gray-400"
+											>Add positive or negative delay to the audio stream.</span
+										>
 									</a>
 								</li>
 							</ul>
@@ -194,23 +212,19 @@
 						<div class="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
 							<ul class="space-y-4">
 								<li>
-									<a href="#" class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-										Blog
+									<a href="#" class="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600">
+										<div class="font-semibold">Extract DCA/DTS core</div>
+										<span class="text-sm font-light text-gray-500 dark:text-gray-400"
+											>Extract the core from a DCA/DTS stream,<br />dropping extensions such as DTS-HD.</span
+										>
 									</a>
 								</li>
 								<li>
-									<a href="#" class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-										Newsletter
-									</a>
-								</li>
-								<li>
-									<a href="#" class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-										Playground
-									</a>
-								</li>
-								<li>
-									<a href="#" class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-										License
+									<a href="#" class="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600">
+										<div class="font-semibold">Convert DTS to E-AC3/AC3</div>
+										<span class="text-sm font-light text-gray-500 dark:text-gray-400">
+											Note: DTS core should be extracted before<br />convert in case of DTS-HD source file.</span
+										>
 									</a>
 								</li>
 							</ul>
