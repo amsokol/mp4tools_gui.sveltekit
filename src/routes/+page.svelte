@@ -2,6 +2,7 @@
 	import { onDestroy } from 'svelte'
 
 	import { FileInput } from '$lib'
+	import { classInput, classInputDisabled, classInputInvalid, classCheckbox, classCheckboxDisabled } from '$lib/styles'
 
 	import { MuxDolbyVisionStore } from './store.js'
 	import type { MuxDolbyVision } from './store.js'
@@ -36,7 +37,9 @@
 				<path
 					stroke-linecap="round"
 					stroke-linejoin="round"
-					d="M7.5 7.5h-.75A2.25 2.25 0 004.5 9.75v7.5a2.25 2.25 0 002.25 2.25h7.5a2.25 2.25 0 002.25-2.25v-7.5a2.25 2.25 0 00-2.25-2.25h-.75m-6 3.75l3 3m0 0l3-3m-3 3V1.5m6 9h.75a2.25 2.25 0 012.25 2.25v7.5a2.25 2.25 0 01-2.25 2.25h-7.5a2.25 2.25 0 01-2.25-2.25v-.75"
+					d="M7.5 7.5h-.75A2.25 2.25 0 004.5 9.75v7.5a2.25 2.25 0 002.25 2.25h7.5a2.25 2.25 0 002.25-2.25v-7.5a2.25 2.25
+					0 00-2.25-2.25h-.75m-6 3.75l3 3m0 0l3-3m-3 3V1.5m6 9h.75a2.25 2.25 0 012.25 2.25v7.5a2.25 2.25 0 01-2.25
+					2.25h-7.5a2.25 2.25 0 01-2.25-2.25v-.75"
 				/>
 			</svg>
 			<span class="text-sm font-medium text-gray-500  dark:text-gray-400">Mux</span>
@@ -75,9 +78,7 @@
 					bind:checked={data.isVideoTrackTitle}
 					id="is-video-track-title"
 					type="checkbox"
-					class="mt-2 w-5 h-5 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500
-					dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600
-					disabled:cursor-not-allowed disabled:text-gray-600"
+					class={'mt-2 w-5 h-5' + classCheckbox + classCheckboxDisabled}
 					on:change={updateStore}
 					disabled={!data.sourceVideoTrack}
 				/>
@@ -86,11 +87,7 @@
 					type="text"
 					id="video-track-title"
 					placeholder="Title"
-					class="block p-2 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 text-sm
-					 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600
-				   dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
-					 disabled:cursor-not-allowed dark:disabled:text-gray-400 disabled:text-gray-400
-					 input-required"
+					class={'block p-2 w-full text-sm' + classInput + classInputDisabled + classInputInvalid}
 					on:change={updateStore}
 					disabled={!data.sourceVideoTrack || !data.isVideoTrackTitle}
 					required={!(!data.sourceVideoTrack || !data.isVideoTrackTitle)}
@@ -106,9 +103,7 @@
 					bind:checked={data.isNewFrameRate}
 					id="is-new-frame-rate"
 					type="checkbox"
-					class="mt-2 w-5 h-5 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500
-					dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600
-					disabled:cursor-not-allowed disabled:text-gray-600"
+					class={'mt-2 w-5 h-5' + classCheckbox + classCheckboxDisabled}
 					on:change={updateStore}
 					disabled={!data.sourceVideoTrack}
 				/>
@@ -117,10 +112,7 @@
 					type="text"
 					id="new-frame-rate"
 					placeholder="e.g. 24000/1001 or 23.967"
-					class="block p-2 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 text-sm
-					focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600
-				  dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
-				  input-required"
+					class={'block p-2 w-full text-sm' + classInput + classInputDisabled + classInputInvalid}
 					on:change={updateStore}
 					disabled={!data.sourceVideoTrack || !data.isNewFrameRate}
 					required={!(!data.sourceVideoTrack || !data.isNewFrameRate)}
