@@ -59,9 +59,7 @@
 		class="block p-3 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300
        focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
        dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
-       invalid:bg-red-50 invalid:border invalid:border-red-500 invalid:focus:ring-red-500
-       invalid:focus:border-red-500 invalid:dark:bg-gray-700 invalid:dark:border-red-500
-       invalid:dark:focus:border-red-500 invalid:dark:focus:ring-red-500"
+       input-required"
 		placeholder="File"
 		{required}
 	/>

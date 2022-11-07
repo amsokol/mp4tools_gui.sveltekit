@@ -2,3 +2,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .input-required {
+    @apply invalid:bg-red-50 invalid:border invalid:border-red-500 invalid:focus:ring-red-500
+       invalid:focus:border-red-500 invalid:dark:bg-gray-700 invalid:dark:border-red-500
+       invalid:dark:focus:border-red-500 invalid:dark:focus:ring-red-500;
+  }
+}

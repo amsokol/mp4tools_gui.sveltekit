@@ -59,7 +59,7 @@
 <div class="m-3">
 	<FileInput
 		id="source-video"
-		label="Source video track"
+		label="Source video track path"
 		required={true}
 		bind:value={data.sourceVideoTrack}
 		on:change={updateStore}
@@ -89,21 +89,44 @@
 					class="block p-2 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 text-sm
 					 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600
 				   dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
-					 disabled:cursor-not-allowed dark:disabled:text-gray-400 disabled:text-gray-400"
+					 disabled:cursor-not-allowed dark:disabled:text-gray-400 disabled:text-gray-400
+					 input-required"
 					on:change={updateStore}
 					disabled={!data.sourceVideoTrack || !data.isVideoTrackTitle}
+					required={!(!data.sourceVideoTrack || !data.isVideoTrackTitle)}
 				/>
 			</div>
 		</div>
-		<div class="shrink w-56">
-			<label for="set-frame-rate" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-				>Set frame rate</label
+		<div class="shrink w-60">
+			<label for="is-new-frame-rate" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+				>Set new frame rate</label
 			>
-			<input
-				type="text"
-				id="set-frame-rate"
-				class="block p-2 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 text-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-			/>
+			<div class="flex gap-1.5">
+				<input
+					bind:checked={data.isNewFrameRate}
+					id="is-new-frame-rate"
+					type="checkbox"
+					class="mt-2 w-5 h-5 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500
+					dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600
+					disabled:cursor-not-allowed disabled:text-gray-600"
+					on:change={updateStore}
+					disabled={!data.sourceVideoTrack}
+				/>
+				<input
+					bind:value={data.newFrameRate}
+					type="text"
+					id="new-frame-rate"
+					placeholder="e.g. 24000/1001 or 23.967"
+					class="block p-2 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 text-sm
+					focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600
+				  dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
+				  input-required"
+					on:change={updateStore}
+					disabled={!data.sourceVideoTrack || !data.isNewFrameRate}
+					required={!(!data.sourceVideoTrack || !data.isNewFrameRate)}
+					pattern="(\d+\/\d+)|(\d+(\.\d+)?)"
+				/>
+			</div>
 		</div>
 	</div>
 </div>
