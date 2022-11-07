@@ -2,7 +2,6 @@
 	import { onDestroy } from 'svelte'
 
 	import { FileInput } from '$lib'
-	import type { OnFileInputChangeEvent } from '$lib'
 
 	import { MuxDolbyVisionStore } from './store.js'
 	import type { MuxDolbyVision } from './store.js'

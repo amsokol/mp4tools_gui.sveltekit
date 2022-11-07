@@ -8,9 +8,7 @@ const config = {
 		extend: {}
 	},
 
-	plugins: [
-		require('flowbite/plugin')
-	]
+	plugins: [require('flowbite/plugin')]
 }
 
 module.exports = config
