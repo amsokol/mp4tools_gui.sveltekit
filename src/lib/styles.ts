@@ -26,7 +26,7 @@ export const classNavbarMenuTopLevel =
 export const classNavbarMenuTopLevelIcon =
     ' mr-1 group-hover:text-blue-600 dark:group-hover:text-blue-500'
 export const classNavbarMenuDropdown =
-    ' grid hidden absolute z-10 w-auto text-sm bg-white rounded-lg border border-gray-100 shadow-md dark:border-gray-700'
+    ' grid hidden absolute z-10 w-auto text-sm bg-white rounded-lg border border-gray-300 shadow-md dark:border-gray-500'
     + ' dark:bg-gray-700'
 export const styleNavbarMenuDropdown =
     ' position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(0px, 10px, 0px);'
