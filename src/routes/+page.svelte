@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { onDestroy } from 'svelte'
 
-	import { FileInput } from '$lib'
+	import { FileInput, FileInputType } from '$lib'
 	import { classInput, classInputDisabled, classInputInvalid, classCheckbox, classCheckboxDisabled } from '$lib/styles'
 
-	import { MuxDolbyVisionStore } from './store.js'
-	import type { MuxDolbyVision } from './store.js'
+	import { MuxDolbyVisionStore } from './store'
+	import type { MuxDolbyVision } from './store'
 
 	import { default as Breadcrumb } from './breadcrumb.svelte'
 
@@ -28,6 +28,7 @@
 
 <div class="m-3">
 	<FileInput
+		fileType={FileInputType.Video}
 		id="source-video"
 		label="Source video track path"
 		required={true}
@@ -35,7 +36,7 @@
 		on:change={updateStore}
 	/>
 
-	<div class="flex gap-4 mt-4">
+	<div class="flex gap-4 mt-3">
 		<div class="shrink w-[50rem]">
 			<label for="is-video-track-title" class="w-min mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
 				>Video track title</label
@@ -87,5 +88,15 @@
 				/>
 			</div>
 		</div>
+	</div>
+
+	<div class="mt-6">
+		<FileInput
+			fileType={FileInputType.Audio}
+			id="source-audio"
+			label="Source audio track path"
+			bind:value={data.sourceAudioTrack}
+			on:change={updateStore}
+		/>
 	</div>
 </div>
