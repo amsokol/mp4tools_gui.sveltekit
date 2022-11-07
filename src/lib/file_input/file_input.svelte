@@ -31,7 +31,7 @@
 </script>
 
 {#if label}
-	<label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for={button_id}>{label}</label>
+	<label class="w-min mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for={button_id}>{label}</label>
 {/if}
 <div class="relative">
 	<div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">

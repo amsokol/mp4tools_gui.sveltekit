@@ -37,7 +37,7 @@
 
 	<div class="flex gap-4 mt-4">
 		<div class="shrink w-[50rem]">
-			<label for="is-video-track-title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+			<label for="is-video-track-title" class="w-min mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
 				>Video track title</label
 			>
 			<div class="flex gap-1.5">
@@ -62,7 +62,7 @@
 			</div>
 		</div>
 		<div class="shrink w-60">
-			<label for="is-new-frame-rate" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+			<label for="is-new-frame-rate" class="w-min mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
 				>Set new frame rate</label
 			>
 			<div class="flex gap-1.5">
